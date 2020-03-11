@@ -1,6 +1,11 @@
 import _ from 'lodash';
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './views/App.js';
+
+// ReactDOM.render(<App />, document.getElementById('root'));
 // import './index.css';
-import printMe from './print';
+// import printMe from './print';
 
 
 function component() {
@@ -9,7 +14,7 @@ function component() {
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
     btn.innerHTML = '点击打印页面';
-    btn.onclick = printMe;
+    // btn.onclick = printMe;
 
     element.appendChild(btn);
 
