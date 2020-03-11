@@ -5,6 +5,7 @@
 - scripts 脚本
 - 依赖包
    - webpack-dev-server 一个简单的 web 服务器，并且能够实时重新加载
+# tsconfig.json ts配置文件 不可少
 # webpack.config.js
 ## devtool
 - 控制 是否如何生成 source map
