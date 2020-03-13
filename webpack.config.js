@@ -1,12 +1,16 @@
 const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
     mode: "development",
     entry: './src/index',
     output: {
-        filename: 'ad.js'
+        // filename: 'p-bundle.js'
     },
     resolve: {
-        extensions: ['.ts']
+        extensions: ['.js', '.ts', '.vue'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js' // 采用 runtime模式 运行时版本
+        }
     },
     devServer: {
       historyApiFallback: {
@@ -19,7 +23,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts?/,
+              test: /\.vue$/,
+              loader: 'vue-loader',
+            },
+            {
+                test: /\.(j | t)s?/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
@@ -28,5 +36,8 @@ module.exports = {
                 use: ['style-loader', 'css-loader']
             }
         ]
-    }
+    },
+    plugins: [
+      new VueLoaderPlugin()
+    ]
 }
